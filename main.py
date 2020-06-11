@@ -40,28 +40,26 @@ def create_file_dict(sorted_dir="./sorted_folder/"):
     for f in os.listdir(dir_path):
         d[i] = f
         i+=1
-    print(d)
-    print('\n')
     return d
 
 # randomly access key:value
 def randomize(d, sorted_dir="./sorted_folder/"):
     keys = list(d.keys())
     random.shuffle(keys)
-    print('Press Enter to begin.')
     print('After each image opens, make your guess and then verify that you are correct.')
     print('Once you have guessed, close the file and return to the terminal to press Enter for the next image.')
+    print('Press Enter to begin.')
     input()
     for i in keys:
         # run the app here
         filename = os.path.join(sorted_dir, d[i])
         subprocess.call(['open', filename])
         input()
+        print('That was ' + d[i])
+        input('Press Enter for the next image.')
 
 
 if __name__ == "__main__":
-    print('running main.py')
-    print(main())
     transfer_files("./testanatomy/")
     print(randomize(create_file_dict()))
 
