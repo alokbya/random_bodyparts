@@ -5,7 +5,7 @@ import sys, shutil, subprocess, random, os
 
 def main():
     
-    return sys.argv[1]
+    return 0
 
 def transfer_files(from_path, to_path="./sorted_folder/"):
     input_dir = from_path
